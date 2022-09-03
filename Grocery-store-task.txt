@@ -1,0 +1,279 @@
+package p1;
+import java.util.Scanner;
+public class Shop {
+	int productCode;
+	int weight;// weight
+	int totalweight;
+	int price;
+	int totalBill = 0;
+	int discount;
+	int finalBill;
+	char exitChoice;// yes or no option
+	Scanner sc = new Scanner(System.in);
+
+	// WELCOME MSG
+	void welcomeMsg() {
+		System.out.println("===Welcome to Organic Store===");
+	}
+	// MENULIST START
+	void menu() {
+		System.out.println("Available Products in The Store : \n" + "1. Fruits \n" + "2. Vegetables \n"
+				+ "3. Cosmetics \n" + "4. Masala Powder");
+	}
+	// SUBMENU LIST START
+	void subMenu() {
+		System.out.println("Please enter your choice :");
+		int choice = sc.nextInt();
+		switch (choice) {
+		// FOR FRUITS
+		case 1:
+			System.out.println("11. Mangoe 1kg rs 50 \n" + "12. Apple 1kg rs 100 \n" + "13. Banana 1kg rs 60\n"
+					+ "14. Orange 1kg rs 44\n" + "15. Grapes 1kg rs 55 \n");
+			System.out.println("Please select your product code :");
+			productCode = sc.nextInt();
+			price = fruitList(productCode);
+			totalAmount(price);
+			discount(totalBill);
+			break;
+		// FOR VEGETABLES
+		case 2:
+			System.out.println("21. Potatos 1kg rs 40\n" + "22. Brinjal 1kg rs 30\n" + 
+		    "23. Carrots 1kg rs 55\n"+"24. Beetroot 1kg rs 65\n" + "25. Mushroom 1kg rs 100");
+			System.out.println("Please select your product code :");
+			productCode = sc.nextInt();
+			price = vegetableList(productCode);
+			totalAmount(price);
+			discount(totalBill);
+			break;
+		// FOR COSMETICS
+		case 3:
+			System.out.println("31. Eyeliner 1 unit rs 35\n" + "32. Nailpolish 1 unit rs 25\n" + 
+		    "33. Facepowder 1 unit rs 65\n"+"34. Parfume 1 unit rs 110\n" + "35. Facewash 1 unit rs 75");
+			System.out.println("Please select your product code :");
+			productCode = sc.nextInt();
+			price = cosmeticList(productCode);
+			totalAmount(price);
+			discount(totalBill);
+			break;
+		//MASALA POWDER	
+		case 4:
+			System.out.println("41. Turmeric 1kg rs 140\n" + "42. Coriander 1kg rs 125\n" + 
+		    "43. Chillipowder 1kg rs 80\n"+ "44. Chaat masala 1kg rs 180\n" + "45. Cardamom 1kg rs 250");
+			System.out.println("Please select your product code :");
+			productCode = sc.nextInt();
+			price = masalaList(productCode);
+			totalAmount(price);
+			discount(totalBill);
+			break;
+			default:
+				System.out.println("invalid code, please enter again :");
+				menu();
+				subMenu();
+				break;
+		}
+	}
+	// FRUIT LIST
+	int fruitList(int productCode) {
+		switch (productCode) {
+		case 11:
+			int mangoes = 50;
+			System.out.println("Mangoes is good choice how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * mangoes;
+			break;
+		case 12:
+			int apple = 100;
+			System.out.println("Apple is good choice how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * apple;
+			break;
+		case 13:
+			int banana = 60;
+			System.out.println("Banana is good choice how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * banana;
+			break;
+		case 14:
+			int orange = 44;
+			System.out.println("Orange is good choice how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * orange;
+			break;
+		case 15:
+			int grapes = 55;
+			System.out.println("Grapes is good choice how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * grapes;
+			break;
+		default:
+			System.out.println("invalid product code");
+			menu();
+			subMenu();
+			break;
+		}
+		return totalweight;
+	}
+	//VEGETABLE LIST
+	int vegetableList(int productCode) {
+		switch (productCode) {
+		case 21:
+			int potato = 40;
+			System.out.println("Potatos, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * potato;
+			break;
+		case 22:
+			int brinjal = 30;
+			System.out.println("Brinjal, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * brinjal;
+			break;
+		case 23:
+			int carrot = 55;
+			System.out.println("Carrot, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * carrot;
+			break;
+		case 24:
+			int beetroot = 65;
+			System.out.println("Beetroot, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * beetroot;
+			break;
+		case 25:
+			int mushroom = 100;
+			System.out.println("Grapes, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * mushroom;
+			break;
+		default:
+			System.out.println("invalid product code please choose another..");
+			menu();
+			subMenu();
+			break;
+		}
+		return totalweight;
+	}
+	// COSMETICS LIST
+	int cosmeticList(int productCode) {
+		switch (productCode) {
+		case 31:
+			int eyeliner = 35;
+			System.out.println("Eyeliner, how many units you want :");
+			weight = sc.nextInt();
+			totalweight = weight * eyeliner;
+			break;
+		case 32:
+			int nailpolish = 25;
+			System.out.println("Nailpolish, how many units you want :");
+			weight = sc.nextInt();
+			totalweight = weight * nailpolish;
+			break;
+		case 33:
+			int facepowder = 65;
+			System.out.println("Facepowder, how many units you want :");
+			weight = sc.nextInt();
+			totalweight = weight * facepowder;
+			break;
+			
+		case 34:
+			int parfume = 110;
+			System.out.println("banana, how many units you want :");
+			weight = sc.nextInt();
+			totalweight = weight * parfume;
+			break;
+		case 35:
+			int facewash = 75;
+			System.out.println("Facewash, how many units you want :");
+			weight = sc.nextInt();
+			totalweight = weight * facewash;
+			break;
+		
+		default:
+			System.out.println("invalid product code");
+			menu();
+			subMenu();
+			break;
+		}
+		return totalweight;
+	}
+	// MASALA POWDER LIST
+	int masalaList(int productCode) {
+		switch (productCode) {
+		case 41:
+			int turmeric = 140;
+			System.out.println("Turmeric, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * turmeric;
+			break;
+		case 42:
+			int coriander = 125;
+			System.out.println("Coriander, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * coriander;
+			break;
+		case 43:
+			int chillipowder = 80;
+			System.out.println("Chillipowder, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * chillipowder;
+			break;
+		case 44:
+			int chaat = 180;
+			System.out.println("Chaat masala, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * chaat;
+			break;
+		case 45:
+			int cardamom = 250;
+			System.out.println("Cardamom, how many kgs you want :");
+			weight = sc.nextInt();
+			totalweight = weight * cardamom;
+			break;
+		default:
+			System.out.println("invalid product code");
+			menu();
+			subMenu();
+			break;
+		}
+		return totalweight;
+	}
+	void totalAmount(int price) {
+		totalBill = totalBill + price;
+	}
+	void discount(int totalBill) {
+		if (totalBill >= 500) {
+			discount = (totalBill * 5) / 100;
+			finalBill = totalBill - discount;
+		} else {
+			discount = 0;
+			finalBill = totalBill;
+		}
+	}
+	void bill() {
+		System.out.println("********************* INVOICE *********************");
+		System.out.println();
+		System.out.println("The Total Bill For Your Purchased Item Is : " + totalBill);
+		System.out.println("You Received Discount of Rs : " + discount);
+		System.out.println("The Final Payable Amount Is : " + finalBill);
+		System.out.println();
+		System.out.println("------- Thankyou for Shopping, Visit Again -------");
+		System.out.println("       ****** JAVA IS AWESOME ******");
+		System.out.println("*****************************************************");
+	}
+	public static void main(String[] arg) {
+		Scanner sc1 = new Scanner(System.in);
+		Shop obj = new Shop();
+		char exitChoice;
+		obj.welcomeMsg();
+		do {
+			obj.menu();
+			obj.subMenu();
+			System.out.println("Do you want to continue shopping? press y for continue ");  
+	  	    exitChoice = sc1.next().charAt(0);  
+		}
+		while(exitChoice =='y'||exitChoice =='Y');
+		obj.bill();
+		sc1.close();
+	}
+}

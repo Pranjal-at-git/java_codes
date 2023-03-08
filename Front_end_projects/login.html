@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+	*{
+		box-sizing:border-box;
+		padding:0px;
+		margin:0px;
+		font-size:1rem;
+		
+	}
+	#container{
+		width:20rem;
+		height:12rem;
+		margin:auto;
+		margin-top:8rem;
+		padding:2rem;
+		box-shadow:4px 4px 5px; #e4e4e4;
+		border-radius:.8rem;
+		background:#ff9966;
+			z-index:1;
+	}
+	.bg-blur {  
+          /* Add the blur effect */
+           filter: blur(8px);
+          -webkit-filter: blur(8px);
+	}
+	button{
+		width:4rem;
+		background:#9900cc;
+		color:white;
+		padding:.2rem;
+		text-align:center;
+		border:0px;
+		outline:none;
+		border-radius:1rem;
+	}
+	button:hover{
+		background:#006600;
+		color:white;
+		
+	}
+  </style>
+ </head>
+ <body>
+     <div class="bg-blur"></div>
+		<div id="container">
+			<form action="home.jsp" target="_self">
+				<label for="email">Enter your Email :</label><br />
+				<input type="email" id="email" name="email" required autocomplete="off"/><br />
+				<label for="pass">Password :</label><br />
+				<input type="text" id="pass" name="pass" required autocomplete="off"/><br /><br />
+				<button type="submit" >Login</button>
+			</form>
+		</div>
+ </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+
+  <title>Document</title>
+  <style>
+	*{
+	box-sizing:border-box;
+	margin:0rem;
+	padding:0rem;
+	}
+	#container-login{
+	width:25rem;
+	margin:auto;
+	margin-top:10%;
+	padding:1.5rem;
+	background:#6699cc;
+	border-radius:1rem;
+	box-shadow:2rem 2rem 2rem #d5aaff ;
+	display:block;
+	}
+	#container-signin{
+	width:25rem;
+	margin:auto;
+	margin-top:10%;
+	padding:1.5rem;
+	background:#6699cc;
+	border-radius:1rem;
+	box-shadow:2rem 2rem 2rem #d5aaff ;
+	display:none;
+	}
+    #login-buttons{
+	padding:8px;
+	width:auto;
+	display:grid;
+	grid-template-columns:auto;
+	}
+	input[type="text"], [type="email"], [type="tel"], [type="password"]{
+	width:90%;
+	outline:none;
+	height:1.5rem;
+	border-radius:.8rem;
+	padding:.5rem;
+	box-shadow:2px 2px 3px #000000;
+	}
+	button{
+	padding:4px;
+	border-radius:1rem;
+	background:#00a653;
+	color:#d6d6d6;
+	font-size:.9rem;
+	}
+  </style>
+ </head>
+ <body>
+  <div id="container-login">
+	<form targer="_self" action="home.jsp" method="post">
+		<label for="email">Email :</label><br/>
+		<input type="email" id="email" name="email" required autocomplete="off"/><br/>
+		<label for="pass">Password :</label><br/>
+		<input type="password" id="pass" name="pass" required autocomplete="off"/><br/><br/>
+		<button type="submit" id="sub">Submit</button>
+	</form>
+	<div id="login-buttons">
+			<button onclick="switchToSignIn()"><strong>Go To Signin Page </strong></button>
+   </div>
+  </div>
+  <div id="container-signin">
+	<h3 align="center">Register Yourself</h4><br />
+	<form targer="_self" action="home.jsp" method="post" id="#form">
+		<label for="fname">Enter First Name :</label><br/>
+		<span id="#fnerr"></span>
+		<input type="text" id="fname" name="fname" required autofocus autocomplete="off"/><br/>
+		 <label for="lname">Enter Last Name :</label><br/>
+		<input type="text" id="lname" name="lname" required autocomplete="off"/><br/>
+		<label for="mobile">Mobile Number :</label><br/>
+		<input type="tel" id="mobile" name="mobile" maxlength="10" required autocomplete="off"/><br/>
+		<label for="email">Email :</label><br/>
+		<input type="email" id="email" name="email" required autocomplete="off"/><br/>
+		<label for="pass">Password :</label><br/>
+		<input type="password" id="pass" name="pass" required autocomplete="off"/><br/><br/>
+		<button type="submit" id="sub">Submit</button>
+		<button type="reset">Reset</button>
+	</form>
+		<div id="login-buttons">
+			<button onclick="switchToLogIn()"><strong>Go To Login Page</strong></button>
+   </div>
+  </div>
+
+  <script>
+
+  		/*Swicthing login to signin page*/
+		function switchToSignIn()
+		{
+			document.getElementById("container-signin").style.display="block";
+			document.getElementById("container-login").style.display="none";
+		}
+		function switchToLogIn()
+		{
+			document.getElementById("container-login").style.display="block";
+			document.getElementById("container-signin").style.display="none";
+		}
+
+       /*Validating name*/
+	   
+	   document.getElementById("fname").onkeypress = function(fname){
+		let ch = fname.which;
+		if(! ( (ch>=65 && ch<=90) || (ch>=97 && ch<=122) || (ch==32)) )
+		{
+			fname.preventDefault();
+		}
+	}
+
+	/*Validating mobile number*/
+
+	document.getElementById("mobile").onkeypress=function(mobile){
+		let mb=mobile.which;
+		if(! (mb>=48 && mb<=57))
+		{
+			mobile.preventDefault();
+		}
+	}
+
+	/*Validating Password*/
+
+	document.getElementById("pass").onsubmit=function(pass){
+		const pw=document.querySelector("pass").value;
+		const lower=false, upper=false, digit=false, symbol=false;
+		let ch;
+		for(let i=0;i<=pw.length;i++)
+		{
+			ch=pw[i];
+			if(ch>='0' && ch<='9')
+			digit=true;
+			else if(ch>='a' && ch<='z')
+			lower=true;
+			else if(ch>='A' && ch<='Z')
+			upper=true;
+			else
+			symbol=true;
+		}
+		if(lower === false || upper ===false || digit ===false || symbol === false)
+		{
+			sub.preventDefault();
+		}
+	}
+ 
+   /*FORM VALIDATION USING REGULAR EXPRESSION*/
+              
+						 
+  </script>
+ </body>
+</html>

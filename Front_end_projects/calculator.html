@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CALULATOR</title>
+  <style>
+	#main{
+	width:35%;
+    place-items: center;
+    height: 90vh;
+	margin: auto auto;
+	}
+	#display-area{
+	width:80%;
+	padding:.8rem;
+	background:red;
+	}
+	input[type="text"]{
+	width:75%;
+	font-size:2rem;
+	}
+	[type="reset"]{
+	width:15%;
+	font-size:2rem;
+    color:#cc00ff;
+	}
+	#key-area{
+	width:80%;
+	background:grey;
+	padding:.8rem;
+	text-align:center;
+	}
+	input[type="button"]
+	{
+	border-radius:3rem;
+	width:5rem;
+	font-size:2rem;
+	padding:.4rem;
+	margin:.2rem;
+	background:#ffffff;
+	color:#cc00ff;
+	border:none;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="main">
+
+		<form>
+		     <div id="display-area">
+			       <input type="text" id="result" name="result" />
+				     <input type="reset" value="clr"  /> 
+			</div>
+
+			<div id="key-area">
+			      <input type="button" value="1" onclick="show('1')" /> 
+				  <input type="button" value="2" onclick="show('2')" /> 
+				  <input type="button" value="3" onclick="show('3')" /> 
+				   <input type="button" value="+" onclick="show('+')" />  <br/>
+
+				  <input type="button" value="4" onclick="show('4')" />
+				  <input type="button" value="5" onclick="show('5')" /> 
+				  <input type="button" value="6" onclick="show('6')" /> 
+				  <input type="button" value="-" onclick="show('-')" /> <br />
+
+				  <input type="button" value="7" onclick="show('7')" />
+				  <input type="button" value="8" onclick="show('8')" />
+				  <input type="button" value="9" onclick="show('9')" />
+				    <input type="button" value="*" onclick="show('*')" /><br/>
+
+			     <input type="button" value="." onclick="show('.')" />
+				  <input type="button" value="0" onclick="show('0')" /> 
+				  <input type="button" value="=" onclick="calculate()" />
+				   <input type="button" value="/" onclick="show('/')" /> 
+				<br/>
+			</div>
+		</form>
+
+
+	</div>
+
+	<script>
+		function show(val)
+		{
+			document.getElementById('result').value +=val;
+		}
+		function clr()
+		{
+			document.getElementById("result").value="";
+		}
+		function calculate()
+		{
+			let v=document.getElementById("result").value;
+			let total=eval(v);
+			document.getElementById("result").value=total;
+		}
+	</script>
+ </body>
+</html>

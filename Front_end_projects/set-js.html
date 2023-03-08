@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ 
+ </head>
+ <body>
+			<div id="main" style="width:100%;height:100px;">			</div>
+			<button onclick="clearInterval(color_interval)">Stop Color Change</button>
+			<script>
+			let color, color_interval;
+		    	// window.setTimeout(function(){alert(" welcome ")},4000);
+		    	//window.setInterval(function(){alert("welcom back")},3000);
+		    color_interval= window.setInterval(changeColor , 1000);
+			function changeColor()
+			{
+				 color=`#${ parseInt(Math.random()*1000000) }`;
+				 document.getElementById("main").style.background = color;
+			}
+			//window.setInterval(changeColor(),  3000);
+			</script>
+ </body>
+</html>
